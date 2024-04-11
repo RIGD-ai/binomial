@@ -24,7 +24,7 @@ module Binomial
       when :greater_than
         1 - calc_cumulative(@target)
       when :greater_than_or_equal_to
-        1 - calc_cumulative(@target - 1)
+        calculate_cumulative_greater_than
       else
         p "Case not handled?!"
       end
@@ -32,12 +32,22 @@ module Binomial
 
     def calc_cumulative(up_to)
       total = 0.0
-      while up_to >= 0 do
+      while up_to > 0 do
         calc = Calculator.new trials: @trials, probability: @probability, target: up_to
         total += calc.calculate
         up_to -= 1
       end
       total
+    end
+
+    def calculate_cumulative_greater_than
+      total = 0.0
+      while @target <= @trials do
+        calc = Calculator.new trials: @trials, probability: @probability, target: @target
+        total += calc.calculate
+        @target += 1
+      end
+      total.round(4)
     end
   end
 end
