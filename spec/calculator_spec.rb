@@ -8,8 +8,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0,
-          :target       => 3,
-          :sign => :greater_than
+          :target       => 3
         ).calculate
       }.to raise_error
     end
@@ -19,8 +18,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 1.1,
-          :target       => 3,
-          :sign => :greater_than
+          :target       => 3
         ).calculate
       }.to raise_error
     end
@@ -30,8 +28,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3,
-          :sign => :greater_than
+          :target       => 3
         ).calculate
       }.to_not raise_error
     end
@@ -41,8 +38,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 11,
-          :sign => :greater_than
+          :target       => 11
         ).calculate
       }.to raise_error
     end
@@ -52,8 +48,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3,
-          :sign => :greater_than
+          :target       => 3
         ).calculate
       }.to_not raise_error
     end
@@ -63,8 +58,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 0,
-          :sign => :greater_than
+          :target       => 0
         ).calculate
       }.to raise_error
     end
@@ -74,8 +68,7 @@ describe "Binomial::Calculator" do
         Binomial::Calculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3,
-          :sign => :greater_than
+          :target       => 3
         ).calculate
       }.to_not raise_error
     end
@@ -84,15 +77,13 @@ describe "Binomial::Calculator" do
       Binomial::Calculator.new(
         :trials       => 2,
         :probability  => 0.5,
-        :target       => 2,
-        :sign => :greater_than
+        :target       => 2
       ).calculate.should == 0.25
       
       Binomial::Calculator.new(
         :trials       => 2,
         :probability  => 0.5,
-        :target       => 1,
-        :sign => :greater_than
+        :target       => 1
       ).calculate.should == 0.5
     end
   end

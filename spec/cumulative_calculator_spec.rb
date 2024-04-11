@@ -8,7 +8,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0,
-          :target       => 3
+          :target       => 3,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to raise_error
     end
@@ -18,7 +19,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 1.1,
-          :target       => 3
+          :target       => 3,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to raise_error
     end
@@ -28,7 +30,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3
+          :target       => 3,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to_not raise_error
     end
@@ -38,7 +41,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 11
+          :target       => 11,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to raise_error
     end
@@ -48,7 +52,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3
+          :target       => 3,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to_not raise_error
     end
@@ -58,7 +63,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 0
+          :target       => 0,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to raise_error
     end
@@ -68,7 +74,8 @@ describe "Binomial::CumulativeCalculator" do
         Binomial::CumulativeCalculator.new(
           :trials       => 10,
           :probability  => 0.2,
-          :target       => 3
+          :target       => 3,
+          :sign => :greater_than_or_equal_to
         ).calculate
       }.to_not raise_error
     end
